@@ -51,6 +51,7 @@ class ArticleController extends Controller
     }
     public function submitEditArticle(Request $request, $article_id)
     {
+        dd('sr');
         $article = Article::find($article_id);
         $article->title = $request->input('title');
         $article->description = $request->input('description');
