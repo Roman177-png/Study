@@ -7,7 +7,7 @@
                     <div class="card-header">Add Article</div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{route('submit-add-article')}}">
+                        <form method="POST" action="{{route('submit-add-article')}}" enctype="multipart/form-data">
                             {{ csrf_field() }}
 
                             <div class="form-group row">

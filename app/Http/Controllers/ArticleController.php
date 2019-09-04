@@ -9,6 +9,8 @@ use App\Models\Topic;
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class ArticleController extends Controller
 {
@@ -22,15 +24,15 @@ class ArticleController extends Controller
 
     public function submitArticle(Request $request)
     {
-        Article::create([
+        $article = Article::create([
             'title' => $request->input('title'),
             'description' => $request->input('description'),
             'topic_id' => $request->input('topic_id'),
-            'user_id' => $request->input('user_id'),
+            'user_id' =>Auth::user()->id,
         ]);
         if($request->hasFile('image')){
             $file = $request->file('image');
-            $path = "public/{$article->id}";
+            $path = "public/articles/{$article->id}";
             Storage::makeDirectory($path);
             if ($article->images && is_file(storage_path("app/$path/$article->images"))){
                 unlink(storage_path("app/$path/$article->images"));
@@ -51,7 +53,6 @@ class ArticleController extends Controller
     }
     public function submitEditArticle(Request $request, $article_id)
     {
-        dd('sr');
         $article = Article::find($article_id);
         $article->title = $request->input('title');
         $article->description = $request->input('description');

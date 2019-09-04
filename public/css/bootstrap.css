@@ -10367,7 +10367,7 @@ body {
     position: relative;
 }
 
-input[type="text"] {
+.my-input {
     height: 60px;
     font-size: 35px;
     display: inline-block;
@@ -10388,17 +10388,17 @@ input[type="text"] {
     cursor: pointer;
 }
 
-input[type="text"]:focus:hover {
+.my-input:focus:hover {
     border-bottom: 1px solid #BBB;
 }
 
-input[type="text"]:focus {
+.my-input:focus {
     width: 700px;
     z-index: 1;
     border-bottom: 1px solid #BBB;
     cursor: text;
 }
-input[type="submit"] {
+.my-input {
     height: 67px;
     width: 63px;
     display: inline-block;
@@ -10417,7 +10417,7 @@ input[type="submit"] {
     transition: opacity .4s ease;
 }
 
-input[type="submit"]:hover {
+.my-input:hover {
     opacity: 0.8;
 }
 

@@ -40,7 +40,7 @@ class OfferController extends Controller
         ]);
         if($request->hasFile('image')){
             $file = $request->file('image');
-            $path = "public/{$offer->id}";
+            $path = "public/offers/{$offer->id}";
             Storage::makeDirectory($path);
             if ($offer->images && is_file(storage_path("app/$path/$offer->images"))){
                 unlink(storage_path("app/$path/$offer->images"));
@@ -71,7 +71,7 @@ class OfferController extends Controller
         $offer->save();
         if($request->hasFile('image')) {
             $file = $request->file('image');
-            $path = "public/{$offer->id}";
+            $path = "public/offers/{$offer->id}";
             Storage::makeDirectory($path);
             $file->move(storage_path("app/$path"), $file->getClientOriginalName());
             $offer->images= $file->getClientOriginalName();
