@@ -33,7 +33,9 @@ class ArticleController extends Controller
         if($request->hasFile('image')){
             $file = $request->file('image');
             $path = "public/articles/{$article->id}";
-            Storage::makeDirectory($path);
+            if(!Storage::exists($path)){
+                Storage::makeDirectory($path);
+            }
             if ($article->images && is_file(storage_path("app/$path/$article->images"))){
                 unlink(storage_path("app/$path/$article->images"));
             }
@@ -61,7 +63,12 @@ class ArticleController extends Controller
         if($request->hasFile('image')) {
             $file = $request->file('image');
             $path = "public/articles/{$article->id}";
-            Storage::makeDirectory($path);
+            if(!Storage::exists($path)){
+                Storage::makeDirectory($path);
+            }
+            if ($article->images && is_file(storage_path("app/$path/$article->images"))){
+                unlink(storage_path("app/$path/$article->images"));
+            }
             $file->move(storage_path("app/$path"), $file->getClientOriginalName());
             $article->images= $file->getClientOriginalName();
             $article->save();

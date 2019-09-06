@@ -21,6 +21,8 @@ Route::group(['prefix' => '/offers'], function() {
     Route::post('/edit/{id_offer}', 'OfferController@submitEditOffer')->name('submit-edit-offer')->middleware('checkUser');;
     Route::get('/delete/{id_offer}', 'OfferController@deleteOffer')->name('delete-offer')->middleware('checkUser');
     Route::get('/details/{id_offer}', 'OfferController@detailsOffer')->name('details-offer');
+    Route::get('/search}', 'OfferController@searchsOffer')->name('search-offer');
+
 });
 
 Route::group(['prefix' => '/articles'], function() {

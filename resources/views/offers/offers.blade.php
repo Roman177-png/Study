@@ -51,7 +51,7 @@
                                             <a href="{{route('delete-offer',[$offer->id])}}" class="btn btn-sm btn-outline-secondary">Delete</a>
                                         @endif
                                         </div>
-                                        <small class="text-muted">9 mins</small>
+                                        <small class="text-muted">{{round(abs(strtotime(date("Y-m-d H:i:s"))-strtotime($offer->created_at))/ 60)}}</small>
                                     </div>
                                 </div>
                             </div>

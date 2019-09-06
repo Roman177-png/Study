@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\OffersFormValidation;
 use App\Models\Article;
 use App\Models\Category;
 use App\Models\Offer;
@@ -28,7 +29,7 @@ class OfferController extends Controller
         return view('offers.add-offer', compact('users', 'categories'));
     }
 
-    public function submitAddOffer(Request $request)
+    public function submitAddOffer(OffersFormValidation $request)
     {
        $offer = Offer::create ([
             'title' => $request->input('title'),
@@ -41,9 +42,8 @@ class OfferController extends Controller
         if($request->hasFile('image')){
             $file = $request->file('image');
             $path = "public/offers/{$offer->id}";
-            Storage::makeDirectory($path);
-            if ($offer->images && is_file(storage_path("app/$path/$offer->images"))){
-                unlink(storage_path("app/$path/$offer->images"));
+            if(!Storage::exists($path)){
+                Storage::makeDirectory($path);
             }
             $file->move(storage_path("app/$path"),$file->getClientOriginalName());
             $offer->images = $file->getClientOriginalName();
@@ -60,7 +60,7 @@ class OfferController extends Controller
         $categories = Category::get();
         return view('offers.edit-offer', compact('offer','users','categories'));
     }
-    public function submitEditOffer(Request $request, $offer_id)
+    public function submitEditOffer(OffersFormValidation $request, $offer_id)
     {
         $offer = Offer::find($offer_id);
         $offer->title = $request->input('offer-title');
@@ -72,7 +72,12 @@ class OfferController extends Controller
         if($request->hasFile('image')) {
             $file = $request->file('image');
             $path = "public/offers/{$offer->id}";
-            Storage::makeDirectory($path);
+            if(!Storage::exists($path)){
+                Storage::makeDirectory($path);
+            }
+            if ($offer->images && is_file(storage_path("app/$path/$offer->images"))){
+                unlink(storage_path("app/$path/$offer->images"));
+            }
             $file->move(storage_path("app/$path"), $file->getClientOriginalName());
             $offer->images= $file->getClientOriginalName();
             $offer->save();
@@ -94,5 +99,11 @@ class OfferController extends Controller
         $user = User::find($offer->user_id);
         $category = Category::find($offer->category_id);
         return view('offers.details-offer', compact('offer','user','category'));
+    }
+    public function searchsOffer (Request $request )
+    {
+        $offers = Offer::where('title', 'like', '%' . $request->input('search') . '%')->orderBy('id','DESC')->paginate(10);
+        $offers = Article::where('title', 'like', '%' . $request->input('search') . '%')->orderBy('id','DESC')->paginate(10);
+        return view('offers.offers', compact('offers'));
     }
 }

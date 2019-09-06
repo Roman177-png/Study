@@ -38,10 +38,11 @@
                         </li>
                     @endguest
             </ul>
-    <div id="wrap">
+    <form method = "get" action="{{route('search-offer')}}">
+     <div id="wrap">
         <form action="" autocomplete="on">
             <input class="my-input" type="text" name="search" placeholder="Search..">         </form>
-    </div>
-
+        </div>
+    </form>
 </header>
 
