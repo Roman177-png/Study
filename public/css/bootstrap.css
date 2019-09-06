@@ -10224,203 +10224,10 @@ a.text-dark:focus, a.text-dark:hover {
 }
 
 
-* {
-    margin: 0;
-    padding: 0;
-}
-
-body {
-    background: #0A122A;
-}
-
-/* Let's style the wrapper in such away that,
-it should always be at the center of the browser */
-.wrapper {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 550px;
-}
-
-/* Style the Un-order list by setting its list-style to none */
-.wrapper ul {
-    list-style: none;
-    margin: 0px 220px 3320px 10px;
-
-}
-
-/* Style the list items inside the UL list, by setting its width, height and line-height
-  and float them to left and set its border and border-radius.
- */
-.wrapper ul li {
-    width: 75px;
-    height: 75px;
-    line-height: 75px;
-    margin: 0 10px;
-    text-align: center;
-    cursor: pointer;
-    border-radius: 50%;
-    border: 5px solid #D8E2DC;
-    float: right;
-    margin: 0px 0px 1089px 10px;
-    transition: all 0.5s ease;
-}
-
-/* Style the icons by setting its color and margin-top value to 20px
-to align it properly */
-.wrapper ul li .fa {
-    color: #D8E2DC;
-    margin-top: 20px;
-    transition: all 0.5s ease;
-}
-
-/* Now target the specific li classes for styling and use box-shadow effect to border and text-shadow effect
-  to icons for glowing effect and use transition property for smooth transition effect. */
-/*facebook*/
-.wrapper ul li:hover.facebook {
-    border: 5px solid #3b5998;
-    box-shadow: 0 0 15px #3b5998;
-    transition: all 0.5s ease;
-}
-
-.wrapper ul li:hover .fa-facebook {
-    color: #3b5998;
-    text-shadow: 0 0 15px #3b5998;
-    transition: all 0.5s ease;
-}
-
-/*twitter*/
-.wrapper ul li:hover.twitter {
-    border: 5px solid #00aced;
-    box-shadow: 0 0 15px #00aced;
-    transition: all 0.5s ease;
-}
-
-.wrapper ul li:hover .fa-twitter {
-    color: #00aced;
-    text-shadow: 0 0 15px #00aced;
-    transition: all 0.5s ease;
-}
-
-/* instagram */
-.wrapper ul li:hover.instagram {
-    border: 5px solid #bc2a8d;
-    box-shadow: 0 0 15px #bc2a8d;
-    transition: all 0.5s ease;
-}
-
-.wrapper ul li:hover .fa-instagram {
-    color: #bc2a8d;
-    text-shadow: 0 0 15px #bc2a8d;
-    transition: all 0.5s ease;
-}
-
-
-
-
-/* media queries */
-
-@media screen and (max-width: 640px){
-    .wrapper {
-        width: 350px;
-    }
-    .wrapper ul li{
-        margin-top: 10px;
-
-    }
-    .wrapper ul li.google{
-        margin-left: 60px;
-    }
-}
-
-
-@media screen and (max-width: 340px){
-    .wrapper {
-        width: 150px;
-    }
-    .wrapper ul li{
-        margin:15px;
-    }
-    .wrapper ul li.google{
-        margin-left: 15px;
-    }
-}
 body{
 
     background-image: url("https://st2.depositphotos.com/8053646/10983/i/950/depositphotos_109833038-stock-photo-watercolor-light-background.jpg");
 }
-@import url(https://fonts.googleapis.com/css?family=Lato:100,300,400,700);
-@import url(https://raw.github.com/FortAwesome/Font-Awesome/master/docs/assets/css/font-awesome.min.css);
-
-body {
-    background-image: url("https://st2.depositphotos.com/8053646/10983/i/950/depositphotos_109833038-stock-photo-watercolor-light-background.jpg");
-    font-size: 15px;
-}
-#wrap {
-    margin: 0px 33px;
-    display: inline-block;
-    position: relative;
-    height: 60px;
-    float: right;
-    padding: 0;
-    position: relative;
-}
-
-.my-input {
-    height: 60px;
-    font-size: 35px;
-    display: inline-block;
-    font-family: "Lato";
-    font-weight: 100;
-    border: none;
-    outline: none;
-    color: #555;
-    padding: 3px;
-    padding-right: 60px;
-    width: 0px;
-    position: absolute;
-    top: 0;
-    right: 0;
-    background: none;
-    z-index: 3;
-    transition: width .4s cubic-bezier(0.000, 0.795, 0.000, 1.000);
-    cursor: pointer;
-}
-
-.my-input:focus:hover {
-    border-bottom: 1px solid #BBB;
-}
-
-.my-input:focus {
-    width: 700px;
-    z-index: 1;
-    border-bottom: 1px solid #BBB;
-    cursor: text;
-}
-.my-input {
-    height: 67px;
-    width: 63px;
-    display: inline-block;
-    color:red;
-    float: right;
-    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAMAAABg3Am1AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAADNQTFRFU1NT9fX1lJSUXl5e1dXVfn5+c3Nz6urqv7+/tLS0iYmJqampn5+fysrK39/faWlp////Vi4ZywAAABF0Uk5T/////////////////////wAlrZliAAABLklEQVR42rSWWRbDIAhFHeOUtN3/ags1zaA4cHrKZ8JFRHwoXkwTvwGP1Qo0bYObAPwiLmbNAHBWFBZlD9j0JxflDViIObNHG/Do8PRHTJk0TezAhv7qloK0JJEBh+F8+U/hopIELOWfiZUCDOZD1RADOQKA75oq4cvVkcT+OdHnqqpQCITWAjnWVgGQUWz12lJuGwGoaWgBKzRVBcCypgUkOAoWgBX/L0CmxN40u6xwcIJ1cOzWYDffp3axsQOyvdkXiH9FKRFwPRHYZUaXMgPLeiW7QhbDRciyLXJaKheCuLbiVoqx1DVRyH26yb0hsuoOFEPsoz+BVE0MRlZNjGZcRQyHYkmMp2hBTIzdkzCTc/pLqOnBrk7/yZdAOq/q5NPBH1f7x7fGP4C3AAMAQrhzX9zhcGsAAAAASUVORK5CYII=) center center no-repeat;
-    text-indent: -10000px;
-    border: none;
-    position: absolute;
-    top: 0;
-    right: 0;
-    z-index: 2;
-    cursor: pointer;
-    opacity: 0.4;
-    cursor: pointer;
-    transition: opacity .4s ease;
-}
-
-.my-input:hover {
-    opacity: 0.8;
-}
-
 
 
 body {margin: 0;padding: 0;font-family: sans-serif;color: #262626;}
@@ -10537,5 +10344,126 @@ div[data-title]:hover:after {
     min-width:150px;
     max-width:150px;
 }
+
+
+ul {list-style-type: none;}
+body {font-family: Verdana, sans-serif;}
+
+/* Month header */
+.month {
+    padding: 70px 25px;
+    width: 100%;
+    background: #1abc9c;
+    text-align: center;
+}
+
+/* Month list */
+.month ul {
+    margin: 0;
+    padding: 0;
+}
+
+.month ul li {
+    color: white;
+    font-size: 20px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+/* Previous button inside month header */
+.month .prev {
+    float: left;
+    padding-top: 10px;
+}
+
+/* Next button */
+.month .next {
+    float: right;
+    padding-top: 10px;
+}
+
+/* Weekdays (Mon-Sun) */
+.weekdays {
+    margin: 0;
+    padding: 10px 0;
+    background-color:#ddd;
+}
+
+.weekdays li {
+    display: inline-block;
+    width: 13.6%;
+    color: #666;
+    text-align: center;
+}
+
+/* Days (1-31) */
+.days {
+    padding: 10px 0;
+    background: #eee;
+    margin: 0;
+}
+
+.days li {
+    list-style-type: none;
+    display: inline-block;
+    width: 13.6%;
+    text-align: center;
+    margin-bottom: 5px;
+    font-size:12px;
+    color: #777;
+}
+
+/* Highlight the "current" day */
+.days li .active {
+    padding: 5px;
+    background: #1abc9c;
+    color: white !important
+}
+
+
+
+
+.my-input {
+    width: 130px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    background-image: url('searchicon.png');
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+
+.my-input:focus {
+    width: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*# sourceMappingURL=bootstrap.min.css.map */

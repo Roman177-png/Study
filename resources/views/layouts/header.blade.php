@@ -38,11 +38,9 @@
                         </li>
                     @endguest
             </ul>
-            <p>adad</p>
     <div id="wrap">
         <form action="" autocomplete="on">
-            <input class="my-input" id="search" name="search" type="text" placeholder="What're we looking for ?"><input id="search_submit" value="Rechercher" type="submit" >
-        </form>
+            <input class="my-input" type="text" name="search" placeholder="Search..">         </form>
     </div>
 
 </header>

@@ -23,16 +23,7 @@
                                     @endif
                                 </div>
                             </div>
-                            <div class="form-group row">
-                                <label class="col-md-4 col-form-label text-md-right" for="user_id">Users</label>
-                                <div class="col-md-6">
-                                    <select class="custom-select" id="user_id" name="user_id">
-                                        @foreach($users as $user)
-                                            <option value="{{$user->id}}" {{$user->id == $article->user_id ? 'selected' : ''}}>{{$user->name}}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div>
+
                             <div class="form-group row">
                                 <label class="col-md-4 col-form-label text-md-right" for="topic_id">Categories</label>
                                 <div class="col-md-6">

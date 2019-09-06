@@ -57,7 +57,6 @@ class ArticleController extends Controller
         $article->title = $request->input('title');
         $article->description = $request->input('description');
         $article->topic_id = $request->input('topic_id');
-        $article->user_id = $request->input('user_id');
         $article->save();
         if($request->hasFile('image')) {
             $file = $request->file('image');

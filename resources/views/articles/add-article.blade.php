@@ -23,16 +23,7 @@
                                     @endif
                                 </div>
                             </div>
-                            <div class="form-group row">
-                                <label class="col-md-4 col-form-label text-md-right" for="user_id">Users</label>
-                                <div class="col-md-6">
-                                    <select class="custom-select" id="user_id" name="user_id">
-                                        @foreach($users as $user)
-                                            <option value="{{$user->id}}">{{$user->name}}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div>
+
                             <div class="form-group row">
                                 <label class="col-md-4 col-form-label text-md-right" for="topic_id">Categories</label>
                                 <div class="col-md-6">
@@ -50,14 +41,14 @@
                                     <input id="image" type="file" class="form-control @if ($errors->has('image')) is-invalid @endif" name="image"  >
 
                                     <div class="input-group">
-                                <span class="col-md-4 col-form-label text-md-right">With textarea</span>
-                                <textarea name="description" class="form-control" aria-label="With textarea"></textarea>
-                            </div>
-                            <div class="form-group row mb-0">
-                                <div class="col-md-6 offset-md-4">
-                                    <button type="submit" class="btn btn-primary">
-                                        Save
-                                    </button>
+                                        <span class="col-md-4 col-form-label text-md-right">With textarea</span>
+                                        <textarea name="description" class="form-control" aria-label="With textarea"></textarea>
+                                    </div>
+                                    <div class="form-group row mb-0">
+                                        <div class="col-md-6 offset-md-4">
+                                            <button type="submit" class="btn btn-primary">
+                                                Save
+                                            </button>
                                 </div>
                             </div>
                         </form>
