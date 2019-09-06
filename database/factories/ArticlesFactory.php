@@ -22,6 +22,5 @@ $factory->define(Article::class, function (Faker $faker) {
         'description' => $faker->text(900),
         'topic_id' => $faker->numberBetween(1,Topic::count()),
         'user_id' => $faker->numberBetween(1,User::count()),
-        'images' => $faker->text(100),
         ];
 });

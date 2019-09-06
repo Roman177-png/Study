@@ -78,6 +78,7 @@ class OfferController extends Controller
             $offer->save();
         };
 
+
         return redirect()->route('offers');
     }
     public function deleteOffer($offer_id)

@@ -61,7 +61,7 @@ class ArticleController extends Controller
         $article->save();
         if($request->hasFile('image')) {
             $file = $request->file('image');
-            $path = "public/{$article->id}";
+            $path = "public/articles/{$article->id}";
             Storage::makeDirectory($path);
             $file->move(storage_path("app/$path"), $file->getClientOriginalName());
             $article->images= $file->getClientOriginalName();

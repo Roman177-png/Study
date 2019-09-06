@@ -27,9 +27,9 @@ Route::group(['prefix' => '/articles'], function() {
     Route::get('/', 'ArticleController@article' )->name('articles');
     Route::get('/add', 'ArticleController@addArticle' )->name('add-article')->middleware('auth');;
     Route::post('/add', 'ArticleController@submitArticle')->name('submit-add-article')->middleware('auth');;
-    Route::get('/edit/{id_article}', 'ArticleController@editArticle')->name('edit-article')->middleware('auth');;
-    Route::post('/edit/{id_article}', 'ArticleController@submitEditArticle')->name('submit-edit-article')->middleware('checkUser');;;
-    Route::get('/delete/{id_article}', 'ArticleController@deleteArticle')->name('delete-article')->middleware('checkUser');;
+    Route::get('/edit/{id_article}', 'ArticleController@editArticle')->name('edit-article')->middleware('checkUserArticle');;
+    Route::post('/edit/{id_article}', 'ArticleController@submitEditArticle')->name('submit-edit-article')->middleware('checkUserArticle');
+    Route::get('/delete/{id_article}', 'ArticleController@deleteArticle')->name('delete-article')->middleware('checkUserArticle');
 });
 
 Auth::routes();
