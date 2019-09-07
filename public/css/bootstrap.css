@@ -10444,8 +10444,14 @@ body {font-family: Verdana, sans-serif;}
 
 
 
-
-
+.details-input{
+    margin-left: -23.333333%;
+    margin-top: 0.333333%;
+    width: 800px;
+}
+.details-image{
+    margin-left: -46.666667%;
+}
 
 
 

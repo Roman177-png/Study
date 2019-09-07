@@ -16,8 +16,8 @@
 
         <section class="sec3"></section>
         <div class="sec-text">
-            <h3 class="sec-text__title">Basic CSS Parallax Scrolling Effects</h3>
-            <p class="sec-text__dsc">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+            <h3 class="sec-text__title">THE MODERN FLAT</h3>
+            <p class="sec-text__dsc">The Modern flat was most typically a post-and-beam structure with a flat or broad low-pitched gable or shed roof. Exposed structure, an expressive use of modern materials, and the incorporation of landscaped areas, sometimes inside the house, were the main contributing elements to the architectural character.These homes were typically designed and built from the 1920s to approximately 1970, with a preponderance developed from 1945 (post WWII) on. They range from the International Style as exemplified by Le Corbusier and Mies van der Rohe to the Modern Ranch House which predominates in the North American west.</p>
         </div>
 
         <section class="sec4"></section>
