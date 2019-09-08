@@ -21,7 +21,7 @@
                         <li class="right-item"><a  href="{{ route('register') }}">Register</a></li>
                     @else
                         <li class=>
-                            <a href="#" >
+                            <a href="{{ route('cabinet') }}" >
                                 {{ Auth::user()->name }}
                             </a>
                         </li>
