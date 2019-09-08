@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ArticleFormValidation;
+use App\Http\Requests\ArticlesFormValidation;
 use App\Models\Article;
 use App\Models\Category;
 use App\Models\Offer;
@@ -22,7 +24,7 @@ class ArticleController extends Controller
         return view('articles.add-article', compact('users', 'topics'));
     }
 
-    public function submitArticle(Request $request)
+    public function submitArticle(ArticlesFormValidation $request)
     {
         $article = Article::create([
             'title' => $request->input('title'),
@@ -53,7 +55,7 @@ class ArticleController extends Controller
         $topics = Topic::get();
         return view('articles.edit-article', compact('article','users','topics'));
     }
-    public function submitEditArticle(Request $request, $article_id)
+    public function submitEditArticle(ArticlesFormValidation $request, $article_id)
     {
         $article = Article::find($article_id);
         $article->title = $request->input('title');
@@ -81,5 +83,10 @@ class ArticleController extends Controller
         $article=Article::find($article_id);
         $article->delete();
         return redirect()->route('index');
+    }
+    public function searchsArticle (Request $request )
+    {
+        $articles = Article::where('title', 'like', '%' . $request->input('search') . '%')->orderBy('id','DESC')->paginate(10);
+        return view('articles.articles', compact('articles'));
     }
 }

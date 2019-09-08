@@ -32,6 +32,8 @@ Route::group(['prefix' => '/articles'], function() {
     Route::get('/edit/{id_article}', 'ArticleController@editArticle')->name('edit-article')->middleware('checkUserArticle');;
     Route::post('/edit/{id_article}', 'ArticleController@submitEditArticle')->name('submit-edit-article')->middleware('checkUserArticle');
     Route::get('/delete/{id_article}', 'ArticleController@deleteArticle')->name('delete-article')->middleware('checkUserArticle');
+    Route::get('/search}', 'ArticleController@searchsArticle')->name('search-article');
+
 });
 
 Auth::routes();

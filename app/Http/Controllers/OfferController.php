@@ -103,7 +103,7 @@ class OfferController extends Controller
     public function searchsOffer (Request $request )
     {
         $offers = Offer::where('title', 'like', '%' . $request->input('search') . '%')->orderBy('id','DESC')->paginate(10);
-        $offers = Article::where('title', 'like', '%' . $request->input('search') . '%')->orderBy('id','DESC')->paginate(10);
         return view('offers.offers', compact('offers'));
+
     }
 }
