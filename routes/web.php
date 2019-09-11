@@ -35,7 +35,7 @@ Route::group(['prefix' => '/articles'], function() {
     Route::get('/search}', 'ArticleController@searchsArticle')->name('search-article');
 
 });
-Route::get('/own-cabinet', 'CabinetController@cabinet')->name('cabinet');
+Route::get('/own-cabinet', 'CabinetController@сabinet')->name('cabinet');
 
 Auth::routes();
 

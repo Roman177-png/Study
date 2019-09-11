@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\ArticleFormValidation;
 use App\Http\Requests\ArticlesFormValidation;
 use App\Models\Article;
 use App\Models\Category;
