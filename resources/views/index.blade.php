@@ -1,6 +1,12 @@
 @extends('layouts.main')
 @section('content')
     <main role="main" class="container">
+        <form method = "get"  action="{{route('search-article')}}">
+            <div id="wrap">
+                <form action="" autocomplete="on">
+                    <input class="my-input" type="text" name="search" placeholder="Search..">  </form>
+            </div>
+        </form>
         <div class="row mb-2">
             <div class="col-md-6">
                 <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">

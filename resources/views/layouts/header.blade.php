@@ -19,7 +19,7 @@
                     @guest
                         <li class="right-item" ><a  href="{{ route('login') }}">Login</a></li>
                         <li class="right-item"><a  href="{{ route('register') }}">Register</a></li>
-                    @else
+            @else
                         <li class=>
                             <a href="{{ route('cabinet') }}" >
                                 {{ Auth::user()->name }}
@@ -37,12 +37,10 @@
                             </form>
                         </li>
                     @endguest
+            <li class="left-item" >
+                <a  href="{{route('add_cabinet')}}">Add Own cabinet</a>
+            </li>
             </ul>
-    <form method = "get" action="{{route('search-offer')}}">
-     <div id="wrap">
-        <form action="" autocomplete="on">
-            <input class="my-input" type="text" name="search" placeholder="Search..">         </form>
-        </div>
-    </form>
+
 </header>
 

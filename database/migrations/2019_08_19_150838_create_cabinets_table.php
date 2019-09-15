@@ -16,9 +16,10 @@ class CreateCabinetsTable extends Migration
         Schema::create('cabinets', function (Blueprint $table) {
             $table->string('first_name');
             $table->string('last_name');
+            $table->bigIncrements('id');
             $table->text('email');
-            $table->text('phone');
-            $table->text('date_of_birth');
+            $table->string('phone');
+            $table->string('date_of_birth');
             $table->string('city_of_residence');
             $table->string('telegram');
             $table->bigInteger('user_id')->index();

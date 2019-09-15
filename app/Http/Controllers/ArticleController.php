@@ -86,6 +86,6 @@ class ArticleController extends Controller
     public function searchsArticle (Request $request )
     {
         $articles = Article::where('title', 'like', '%' . $request->input('search') . '%')->orderBy('id','DESC')->paginate(10);
-        return view('articles.articles', compact('articles'));
+        return view('index', compact('articles'));
     }
 }

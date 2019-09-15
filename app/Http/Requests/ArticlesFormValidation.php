@@ -18,7 +18,7 @@ class ArticlesFormValidation extends FormRequest
         return [
             'title' => 'required|max:255',
             'image'  => 'file|mimes:png,jpg,jpeg,gif|max:10240',
-            'description' => 'nullable|max:500'
+            'description' => 'required|max:255'
 
         ];
     }

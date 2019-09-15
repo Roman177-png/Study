@@ -1,10 +1,11 @@
+
 @extends('layouts.main')
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">Add Article</div>
+                    <div class="card-header">{{ __('Register') }}</div>
 
                     <div class="card-body">
                         <form method="POST" action="{{route('submit-add-article')}}" enctype="multipart/form-data">
@@ -24,6 +25,7 @@
                                 </div>
                             </div>
 
+
                             <div class="form-group row">
                                 <label class="col-md-4 col-form-label text-md-right" for="topic_id">Categories</label>
                                 <div class="col-md-6">
@@ -40,15 +42,22 @@
                                 <div class="col-md-6">
                                     <input id="image" type="file" class="form-control @if ($errors->has('image')) is-invalid @endif" name="image"  >
 
-                                    <div class="input-group">
-                                        <span class="col-md-4 col-form-label text-md-right">With textarea</span>
-                                        <textarea name="description" class="form-control" aria-label="With textarea"></textarea>
-                                    </div>
-                                    <div class="form-group row mb-0">
-                                        <div class="col-md-6 offset-md-4">
-                                            <button type="submit" class="btn btn-primary">
-                                                Save
-                                            </button>
+                                    @if ($errors->has('prise'))
+                                        <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('prise') }}</strong>
+                                    </span>
+                                    @endif
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <span class="col-md-4 col-form-label text-md-right">Description</span>
+                                <textarea name="description" class="form-control" aria-label="With textarea"></textarea>
+                            </div>
+                            <div class="form-group row mb-0">
+                                <div class="col-md-6 offset-md-4">
+                                    <button type="submit" class="btn btn-primary">
+                                        Save
+                                    </button>
                                 </div>
                             </div>
                         </form>
@@ -59,4 +68,5 @@
     </div>
 
 @stop
+
 

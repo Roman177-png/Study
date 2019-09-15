@@ -63,7 +63,7 @@ class OfferController extends Controller
     public function submitEditOffer(OffersFormValidation $request, $offer_id)
     {
         $offer = Offer::find($offer_id);
-        $offer->title = $request->input('offer-title');
+        $offer->title = $request->input('title');
         $offer->price = $request->input('price');
         $offer->currency = $request->input('currency');
         $offer->description = $request->input('description');

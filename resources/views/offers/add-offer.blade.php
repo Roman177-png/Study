@@ -2,7 +2,7 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-8">
+            <div class="col-md-8" >
                 <div class="card">
                     <div class="card-header">{{ __('Register') }}</div>
 
@@ -63,15 +63,15 @@
                                 <div class="col-md-6">
                                     <input id="image" type="file" class="form-control @if ($errors->has('image')) is-invalid @endif" name="image"  >
 
-                                    @if ($errors->has('prise'))
+                                    @if ($errors->has('image'))
                                         <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('prise') }}</strong>
+                                        <strong>{{ $errors->first('image') }}</strong>
                                     </span>
                                     @endif
                                 </div>
                             </div>
                             <div class="input-group">
-                                <span class="col-md-4 col-form-label text-md-right">With textarea</span>
+                                <span class="col-md-4 col-form-label text-md-right">Description</span>
                                 <textarea name="description" class="form-control" aria-label="With textarea"></textarea>
                             </div>
                             <div class="form-group row mb-0">

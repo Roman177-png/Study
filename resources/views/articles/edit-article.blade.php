@@ -1,3 +1,4 @@
+
 @extends('layouts.main')
 @section('content')
     <div class="container">
@@ -5,7 +6,6 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">Edit Article</div>
-
                     <div class="card-body">
                         <form method="POST" action="{{route('submit-edit-article',[$article->id])}}" enctype="multipart/form-data">
                             {{ csrf_field() }}
@@ -14,7 +14,7 @@
                                 <label for="title" class="col-md-4 col-form-label text-md-right">Title</label>
 
                                 <div class="col-md-6">
-                                    <input id="title" type="text" class="form-control  @if ($errors->has('title')) is-invalid @endif" name="title" value="{{$article->title}}" >
+                                    <input id="title" type="text" class="form-control @if ($errors->has('title')) is-invalid  @endif" name="title" value="{{ $article->title }}" >
 
                                     @if ($errors->has('title'))
                                         <span class="invalid-feedback" role="alert">
@@ -23,6 +23,7 @@
                                     @endif
                                 </div>
                             </div>
+
 
                             <div class="form-group row">
                                 <label class="col-md-4 col-form-label text-md-right" for="topic_id">Categories</label>
@@ -44,8 +45,16 @@
 
                                 <div class="col-md-6">
                                     <input id="image" type="file" class="form-control @if ($errors->has('image')) is-invalid @endif" name="image"  >
+
+                                    @if ($errors->has('image'))
+                                        <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('image') }}</strong>
+                                    </span>
+                                    @endif
+                                </div>
+                            </div>
                             <div class="input-group">
-                                <span class="col-md-4 col-form-label text-md-right">With textarea</span>
+                                <span class="col-md-4 col-form-label text-md-right">Description</span>
                                 <textarea name="description" class="form-control" aria-label="With textarea">{{$article->description}}</textarea>
                             </div>
                             <div class="form-group row mb-0">
@@ -61,6 +70,6 @@
             </div>
         </div>
     </div>
-
 @stop
+
 

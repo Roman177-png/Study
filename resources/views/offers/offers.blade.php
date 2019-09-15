@@ -1,6 +1,12 @@
 @extends('layouts.main')
 @section('content')
     <main role="main">
+        <form method = "get" action="{{route('search-offer')}}"
+        <div id="wrap">
+            <form action="" autocomplete="on">
+                <input class="my-input" type="text" name="search" placeholder="Search..">         </form>
+        </div>
+        </form>
 
         <section class="sec1"></section>
         <div class="sec-text">
@@ -63,6 +69,7 @@
                 </div>
             </div>
         </div>
+
 
 
     </main>
