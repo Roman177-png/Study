@@ -3,7 +3,6 @@
 namespace App\Http\Middleware;
 
 use App\Models\Cabinet;
-use App\Models\Offer;
 use Closure;
 use Illuminate\Support\Facades\Auth;
 

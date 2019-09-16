@@ -35,9 +35,9 @@ Route::group(['prefix' => '/articles'], function() {
     Route::get('/search}', 'ArticleController@searchsArticle')->name('search-article');
 
 });
-Route::get('/own-cabinet', 'CabinetController@cabinet')->name('cabinet')->middleware('auth');;
-Route::get('/add', 'CabinetController@addCabinet' )->name('add_cabinet')->middleware('auth');;
-Route::get('/add-cabinet', 'CabinetController@add_cabinet')->name('submit_add_cabinet')->middleware('auth');;
+Route::get('/own-cabinet', 'CabinetController@cabinet')->name('cabinet')->middleware('auth');
+Route::get('/add', 'CabinetController@addCabinet' )->name('add_cabinet')->middleware('auth');
+Route::post('/add-cabinet', 'CabinetController@add_cabinet')->name('submit_add_cabinet')->middleware('auth');;
 
 
 Auth::routes();

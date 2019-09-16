@@ -29,7 +29,7 @@ class CabinetController extends Controller
         return view('own-cabinet.add-cabinet', compact('users'));
     }
 
-    public function submitCabinet(CabinetsFormValidation $request)
+    public function add_cabinet(CabinetsFormValidation $request)
     {
         $cabinet = Cabinet::create([
             'first_name' => $request->input('first_name'),
