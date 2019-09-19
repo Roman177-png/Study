@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Models\Cabinet;
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
@@ -21,7 +22,6 @@ class RegisterController extends Controller
     */
 
     use RegistersUsers;
-
     /**
      * Where to redirect users after registration.
      *
@@ -59,13 +59,23 @@ class RegisterController extends Controller
      *
      * @param  array  $data
      * @return \App\User
+     *
      */
+
     protected function create(array $data)
     {
-        return User::create([
+        $user=User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
+
+        Cabinet::create([
+            'first_name' => $data['name'],
+            'email' =>$data['email'],
+            'user_id'=>$user->id,
+        ]);
+        return $user;
     }
+
 }

@@ -37,9 +37,6 @@
                             </form>
                         </li>
                     @endguest
-            <li class="left-item" >
-                <a  href="{{route('add_cabinet')}}">Add Own cabinet</a>
-            </li>
             </ul>
 
 </header>

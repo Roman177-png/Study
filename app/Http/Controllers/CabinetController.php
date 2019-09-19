@@ -16,49 +16,48 @@ use Illuminate\Support\Facades\Storage;
 
 class CabinetController extends Controller
 {
-
     public function cabinet()
     {
-        $cabinets = Cabinet::where('id', '>=', 13)->orderBy('id', 'Desc')->paginate(10);
-        return view('own-cabinet.cabinet', compact('cabinets'));
+        $cabinet = Cabinet::where('user_id', Auth::user()->id)->first();
+        return view('own-cabinet.cabinet', compact('cabinet'));
     }
 
-    public function addCabinet()
+    public function editCabinet($cabinet_id)
     {
+        $cabinet = Cabinet::find($cabinet_id);
         $users = User::get();
-        return view('own-cabinet.add-cabinet', compact('users'));
+        return view('own-cabinet.edit-cabinet', compact('cabinet', 'users'));
     }
 
-    public function add_cabinet(CabinetsFormValidation $request)
+    public function submitEditCabinet(CabinetsFormValidation $request, $cabinet_id)
     {
-        $cabinet = Cabinet::create([
-            'first_name' => $request->input('first_name'),
-            'last_name' => $request->input('last_name'),
-            'email' => $request->input('email'),
-            'phone' => $request->input('phone'),
-            'date_of_birth' => $request->input('date_of_birth'),
-            'city_of_residence' => $request->input('city_of_residence'),
-            'telegram' => $request->input('telegram'),
-            'user_id' =>Auth::user()->id,
-            'about_self' => $request->input('about_self'),
-
-
-        ]);
-        if($request->hasFile('image')){
-            $file = $request->file('image');
-            $path = "public/articles/{$cabinet->id}";
-            if(!Storage::exists($path)){
+        $cabinet = Cabinet::find($cabinet_id);
+        $cabinet->first_name = $request->input('first_name');
+        $cabinet->last_name = $request->input('last_name');
+        $cabinet->email = $request->input('email');
+        $cabinet->phone = $request->input('phone');
+        $cabinet->date_of_birth = $request->input('date_of_birth');
+        $cabinet->city_of_residence = $request->input('city_of_residence');
+        $cabinet->telegram = $request->input('telegram');
+        $cabinet->about_self = $request->input('about_self');
+        $cabinet->save();
+        if ($request->hasFile('images')) {
+            $file = $request->file('images');
+            $path = "public/cabinets/{$cabinet->id}";
+            if (!Storage::exists($path)) {
                 Storage::makeDirectory($path);
             }
-            if ($cabinet->images && is_file(storage_path("app/$path/$cabinet->images"))){
+            if ($cabinet->images && is_file(storage_path("app/$path/$cabinet->images"))) {
                 unlink(storage_path("app/$path/$cabinet->images"));
             }
-            $file->move(storage_path("app/$path"),$file->getClientOriginalName());
+            $file->move(storage_path("app/$path"), $file->getClientOriginalName());
             $cabinet->images = $file->getClientOriginalName();
             $cabinet->save();
         };
+
+
         return redirect()->route('cabinet');
-    }
 
 
     }
+}
